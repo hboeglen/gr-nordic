@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_fa0339a9035d2ab9f36ff9f132f39a3b" kind="dir">
+    <compoundname>docstrings</compoundname>
+    <innerfile refid="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h">build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h</innerfile>
+    <innerfile refid="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__tx__pydoc__template_8h">build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_tx_pydoc_template.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structnordictap__header" kind="struct" language="C++" prot="public">
+    <compoundname>nordictap_header</compoundname>
+    <includes refid="nordictap_8h" local="no">nordictap.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnordictap__header_1abd043ae9180177b8568dea3eb935125f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nordictap_header::channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="14" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnordictap__header_1a75c0672166bbfa5d617ef894807fccb8" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nordictap_header::data_rate</definition>
+        <argsstring></argsstring>
+        <name>data_rate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="17" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnordictap__header_1aaaf551c8bd834f8e3377496d8c02f490" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nordictap_header::address_length</definition>
+        <argsstring></argsstring>
+        <name>address_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="20" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnordictap__header_1a6749f84e9b20b470b083b96811cc022c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nordictap_header::payload_length</definition>
+        <argsstring></argsstring>
+        <name>payload_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="23" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnordictap__header_1af82ea4460a9c49068f30754a8bb6b1be" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nordictap_header::sequence_number</definition>
+        <argsstring></argsstring>
+        <name>sequence_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="26" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnordictap__header_1ab6c7b7ac6f91e62ecfcd391dcb094b15" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool nordictap_header::no_ack</definition>
+        <argsstring></argsstring>
+        <name>no_ack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="29" column="8" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnordictap__header_1a796571912c67aef97fff878450343ab3" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nordictap_header::crc_length</definition>
+        <argsstring></argsstring>
+        <name>crc_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="32" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" line="11" column="1" bodyfile="/home/herve/Documents/gr-nordic_38/lib/nordictap.h" bodystart="12" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structnordictap__header_1aaaf551c8bd834f8e3377496d8c02f490" prot="public" virt="non-virtual"><scope>nordictap_header</scope><name>address_length</name></member>
+      <member refid="structnordictap__header_1abd043ae9180177b8568dea3eb935125f" prot="public" virt="non-virtual"><scope>nordictap_header</scope><name>channel</name></member>
+      <member refid="structnordictap__header_1a796571912c67aef97fff878450343ab3" prot="public" virt="non-virtual"><scope>nordictap_header</scope><name>crc_length</name></member>
+      <member refid="structnordictap__header_1a75c0672166bbfa5d617ef894807fccb8" prot="public" virt="non-virtual"><scope>nordictap_header</scope><name>data_rate</name></member>
+      <member refid="structnordictap__header_1ab6c7b7ac6f91e62ecfcd391dcb094b15" prot="public" virt="non-virtual"><scope>nordictap_header</scope><name>no_ack</name></member>
+      <member refid="structnordictap__header_1a6749f84e9b20b470b083b96811cc022c" prot="public" virt="non-virtual"><scope>nordictap_header</scope><name>payload_length</name></member>
+      <member refid="structnordictap__header_1af82ea4460a9c49068f30754a8bb6b1be" prot="public" virt="non-virtual"><scope>nordictap_header</scope><name>sequence_number</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

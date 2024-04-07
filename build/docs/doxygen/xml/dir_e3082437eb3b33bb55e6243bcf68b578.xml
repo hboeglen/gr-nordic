@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_e3082437eb3b33bb55e6243bcf68b578" kind="dir">
+    <compoundname>nordic</compoundname>
+    <innerdir refid="dir_2a8ee0c899f1c0b6c77f3f2fae63c0bf">bindings</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/"/>
+  </compounddef>
+</doxygen>

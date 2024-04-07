@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classbit__shifting__byte__vector" kind="class" language="C++" prot="public">
+    <compoundname>bit_shifting_byte_vector</compoundname>
+    <includes refid="bit__shifting__byte__vector_8h" local="no">bit_shifting_byte_vector.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classbit__shifting__byte__vector_1abca4b1cf3faf41d80e1fd3f463b0ad2b" prot="private" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* bit_shifting_byte_vector::m_bytes</definition>
+        <argsstring></argsstring>
+        <name>m_bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="57" column="20" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classbit__shifting__byte__vector_1a6fd030fbe93ff5aec0ccf8daf639aa37" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bit_shifting_byte_vector::m_length</definition>
+        <argsstring></argsstring>
+        <name>m_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="60" column="9" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classbit__shifting__byte__vector_1a4f8a919f7509f53da15e04260c84d8de" prot="private" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* bit_shifting_byte_vector::m_previous_states[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>m_previous_states</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="63" column="20" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classbit__shifting__byte__vector_1ae4c7d3d0317a702a362a1c9cbe5bb0fc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bit_shifting_byte_vector::m_previous_state_write</definition>
+        <argsstring></argsstring>
+        <name>m_previous_state_write</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="66" column="9" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classbit__shifting__byte__vector_1a1488b6d9856f74e2a0a8f0436d754692" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bit_shifting_byte_vector::m_previous_state_read</definition>
+        <argsstring></argsstring>
+        <name>m_previous_state_read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="69" column="9" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classbit__shifting__byte__vector_1ab7290ddc39c2267c59cbd23fbf32fd1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>bit_shifting_byte_vector::bit_shifting_byte_vector</definition>
+        <argsstring>(int length)</argsstring>
+        <name>bit_shifting_byte_vector</name>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="31" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classbit__shifting__byte__vector_1a169523da742dfd76bbd6ac137259ab01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>bit_shifting_byte_vector::bit_shifting_byte_vector</definition>
+        <argsstring>(const bit_shifting_byte_vector &amp;copy)</argsstring>
+        <name>bit_shifting_byte_vector</name>
+        <param>
+          <type>const <ref refid="classbit__shifting__byte__vector" kindref="compound">bit_shifting_byte_vector</ref> &amp;</type>
+          <declname>copy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="34" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classbit__shifting__byte__vector_1a6feb5d4a2a925dc75ef6557e8dc3c5c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>bit_shifting_byte_vector::~bit_shifting_byte_vector</definition>
+        <argsstring>()</argsstring>
+        <name>~bit_shifting_byte_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="37" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classbit__shifting__byte__vector_1a3a033d1d3a3bb06086b7d84e89f88e1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bit_shifting_byte_vector::add_bit</definition>
+        <argsstring>(unsigned char bit)</argsstring>
+        <name>add_bit</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>bit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="40" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classbit__shifting__byte__vector_1ae37ea322137ed4d2b3c2ae61a4479d35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const unsigned char *</type>
+        <definition>const unsigned char* bit_shifting_byte_vector::bytes</definition>
+        <argsstring>()</argsstring>
+        <name>bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="43" column="26" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classbit__shifting__byte__vector_1abeebe26f91c2bd311f5aad2dcb1c0f3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const unsigned char *</type>
+        <definition>const unsigned char* bit_shifting_byte_vector::bytes</definition>
+        <argsstring>(int index)</argsstring>
+        <name>bytes</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="46" column="26" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="46" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" line="26" column="1" bodyfile="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h" bodystart="27" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classbit__shifting__byte__vector_1a3a033d1d3a3bb06086b7d84e89f88e1d" prot="public" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>add_bit</name></member>
+      <member refid="classbit__shifting__byte__vector_1ab7290ddc39c2267c59cbd23fbf32fd1f" prot="public" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>bit_shifting_byte_vector</name></member>
+      <member refid="classbit__shifting__byte__vector_1a169523da742dfd76bbd6ac137259ab01" prot="public" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>bit_shifting_byte_vector</name></member>
+      <member refid="classbit__shifting__byte__vector_1ae37ea322137ed4d2b3c2ae61a4479d35" prot="public" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>bytes</name></member>
+      <member refid="classbit__shifting__byte__vector_1abeebe26f91c2bd311f5aad2dcb1c0f3d" prot="public" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>bytes</name></member>
+      <member refid="classbit__shifting__byte__vector_1abca4b1cf3faf41d80e1fd3f463b0ad2b" prot="private" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>m_bytes</name></member>
+      <member refid="classbit__shifting__byte__vector_1a6fd030fbe93ff5aec0ccf8daf639aa37" prot="private" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>m_length</name></member>
+      <member refid="classbit__shifting__byte__vector_1a1488b6d9856f74e2a0a8f0436d754692" prot="private" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>m_previous_state_read</name></member>
+      <member refid="classbit__shifting__byte__vector_1ae4c7d3d0317a702a362a1c9cbe5bb0fc" prot="private" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>m_previous_state_write</name></member>
+      <member refid="classbit__shifting__byte__vector_1a4f8a919f7509f53da15e04260c84d8de" prot="private" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>m_previous_states</name></member>
+      <member refid="classbit__shifting__byte__vector_1a6feb5d4a2a925dc75ef6557e8dc3c5c3" prot="public" virt="non-virtual"><scope>bit_shifting_byte_vector</scope><name>~bit_shifting_byte_vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

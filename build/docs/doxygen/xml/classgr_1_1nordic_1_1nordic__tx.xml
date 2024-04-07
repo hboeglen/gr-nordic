@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classgr_1_1nordic_1_1nordic__tx" kind="class" language="C++" prot="public">
+    <compoundname>gr::nordic::nordic_tx</compoundname>
+    <basecompoundref prot="public" virt="virtual">gr::sync_block</basecompoundref>
+    <derivedcompoundref refid="classgr_1_1nordic_1_1nordic__tx__impl" prot="public" virt="non-virtual">gr::nordic::nordic_tx_impl</derivedcompoundref>
+    <includes refid="nordic__tx_8h" local="no">nordic_tx.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classgr_1_1nordic_1_1nordic__tx_1acffb150746c9e3c00174f04007a9be93" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="classgr_1_1nordic_1_1nordic__tx" kindref="compound">nordic_tx</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;nordic_tx&gt; gr::nordic::nordic_tx::sptr</definition>
+        <argsstring></argsstring>
+        <name>sptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/include/gnuradio/nordic/nordic_tx.h" line="39" column="31" bodyfile="/home/herve/Documents/gr-nordic_38/include/gnuradio/nordic/nordic_tx.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classgr_1_1nordic_1_1nordic__tx_1a74ecc04c92443b2540ebedac1ce91697" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classgr_1_1nordic_1_1nordic__tx_1acffb150746c9e3c00174f04007a9be93" kindref="member">sptr</ref></type>
+        <definition>static sptr gr::nordic::nordic_tx::make</definition>
+        <argsstring>(uint8_t channel_count=1)</argsstring>
+        <name>make</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_count</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+<para>Return a shared_ptr to a new instance of <ref refid="classgr_1_1nordic_1_1nordic__tx" kindref="compound">nordic::nordic_tx</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To avoid accidental use of raw pointers, <ref refid="classgr_1_1nordic_1_1nordic__tx" kindref="compound">nordic::nordic_tx</ref>&apos;s constructor is in a private implementation class. <ref refid="classgr_1_1nordic_1_1nordic__tx_1a74ecc04c92443b2540ebedac1ce91697" kindref="member">nordic::nordic_tx::make</ref> is the public interface for creating new instances. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/include/gnuradio/nordic/nordic_tx.h" line="49" column="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>&lt;+description of block+&gt; </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>gr::nordic::nordic_tx_impl</label>
+        <link refid="classgr_1_1nordic_1_1nordic__tx__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gr::sync_block</label>
+      </node>
+      <node id="1">
+        <label>gr::nordic::nordic_tx</label>
+        <link refid="classgr_1_1nordic_1_1nordic__tx"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>gr::sync_block</label>
+      </node>
+      <node id="1">
+        <label>gr::nordic::nordic_tx</label>
+        <link refid="classgr_1_1nordic_1_1nordic__tx"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/herve/Documents/gr-nordic_38/include/gnuradio/nordic/nordic_tx.h" line="36" column="5" bodyfile="/home/herve/Documents/gr-nordic_38/include/gnuradio/nordic/nordic_tx.h" bodystart="37" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classgr_1_1nordic_1_1nordic__tx_1a74ecc04c92443b2540ebedac1ce91697" prot="public" virt="non-virtual"><scope>gr::nordic::nordic_tx</scope><name>make</name></member>
+      <member refid="classgr_1_1nordic_1_1nordic__tx_1acffb150746c9e3c00174f04007a9be93" prot="public" virt="non-virtual"><scope>gr::nordic::nordic_tx</scope><name>sptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

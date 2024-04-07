@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h" kind="file" language="C++">
+    <compoundname>build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h</compoundname>
+    <includes local="yes">pydoc_macros.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>pydoc_macros.h</label>
+      </node>
+      <node id="1">
+        <label>nordic_rx_pydoc_template.h</label>
+        <link refid="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h_1a74021f021dcdfbb22891787b79c5529d" prot="public" static="no">
+        <name>D</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="docs_2doxygen_2pydoc__macros_8h_1a4e578031ec998eaeb933d5caa6a7d28a" kindref="member">DOC</ref>(gr, nordic, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" line="10" column="10" bodyfile="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h_1a53f657a2b2f2287851082b7465021ddd" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* __doc_gr_nordic_nordic_rx</definition>
+        <argsstring></argsstring>
+        <name>__doc_gr_nordic_nordic_rx</name>
+        <initializer>= R&quot;doc()doc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" line="18" column="19" bodyfile="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h_1a82445719b4e1d74b3e03b90d8253a530" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* __doc_gr_nordic_nordic_rx_nordic_rx_0</definition>
+        <argsstring></argsstring>
+        <name>__doc_gr_nordic_nordic_rx_nordic_rx_0</name>
+        <initializer>= R&quot;doc()doc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" line="21" column="19" bodyfile="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h_1acb8eb76767e922ec9757514196c620d3" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* __doc_gr_nordic_nordic_rx_nordic_rx_1</definition>
+        <argsstring></argsstring>
+        <name>__doc_gr_nordic_nordic_rx_nordic_rx_1</name>
+        <initializer>= R&quot;doc()doc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" line="24" column="19" bodyfile="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h_1afc64410abbf78659b3b7705eb633ccd3" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* __doc_gr_nordic_nordic_rx_make</definition>
+        <argsstring></argsstring>
+        <name>__doc_gr_nordic_nordic_rx_make</name>
+        <initializer>= R&quot;doc()doc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" line="27" column="19" bodyfile="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h_1a95b9483225ac6a3914fe583cc6ee838a" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* __doc_gr_nordic_nordic_rx_get_channel</definition>
+        <argsstring></argsstring>
+        <name>__doc_gr_nordic_nordic_rx_get_channel</name>
+        <initializer>= R&quot;doc()doc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" line="30" column="19" bodyfile="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="build_2test__modules_2gnuradio_2nordic_2bindings_2docstrings_2nordic__rx__pydoc__template_8h_1a4ae5cc2de9bae70e9c9a08f19ac33415" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* __doc_gr_nordic_nordic_rx_set_channel</definition>
+        <argsstring></argsstring>
+        <name>__doc_gr_nordic_nordic_rx_set_channel</name>
+        <initializer>= R&quot;doc()doc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" line="33" column="19" bodyfile="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/herve/Documents/gr-nordic_38/build/test_modules/gnuradio/nordic/bindings/docstrings/nordic_rx_pydoc_template.h"/>
+  </compounddef>
+</doxygen>

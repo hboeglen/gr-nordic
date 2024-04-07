@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="bit__shifting__byte__vector_8h" kind="file" language="C++">
+    <compoundname>bit_shifting_byte_vector.h</compoundname>
+    <includedby refid="nordic__rx__impl_8h" local="yes">nordic_rx_impl.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>nordic_rx_impl.h</label>
+        <link refid="nordic__rx__impl_8h"/>
+      </node>
+      <node id="1">
+        <label>bit_shifting_byte_vector.h</label>
+        <link refid="bit__shifting__byte__vector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classbit__shifting__byte__vector" prot="public">bit_shifting_byte_vector</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.h"/>
+  </compounddef>
+</doxygen>

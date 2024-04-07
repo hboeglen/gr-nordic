@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="enhanced__shockburst__packet_8h" kind="file" language="C++">
+    <compoundname>enhanced_shockburst_packet.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="nordic__rx__impl_8h" local="yes">nordic_rx_impl.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="1">
+        <label>enhanced_shockburst_packet.h</label>
+        <link refid="enhanced__shockburst__packet_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>nordic_rx_impl.h</label>
+        <link refid="nordic__rx__impl_8h"/>
+      </node>
+      <node id="1">
+        <label>enhanced_shockburst_packet.h</label>
+        <link refid="enhanced__shockburst__packet_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classenhanced__shockburst__packet" prot="public">enhanced_shockburst_packet</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a6a04890e6bf6a8c5333d6c0e6f6f33fb" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t m_address_length</definition>
+        <argsstring></argsstring>
+        <name>m_address_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="42" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1aacb6da561b9416bc497479792774f65a" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t m_payload_length</definition>
+        <argsstring></argsstring>
+        <name>m_payload_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="45" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a7c1e6f68f78f52c66596f1c2d222d908" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t m_packet_length_bytes</definition>
+        <argsstring></argsstring>
+        <name>m_packet_length_bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="48" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a034fb7dc504c3add8b5f151dfefe855a" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t m_packet_length_bits</definition>
+        <argsstring></argsstring>
+        <name>m_packet_length_bits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="49" column="12" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a228222283ca3a93b272f4b189cfdf86f" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t m_sequence_number</definition>
+        <argsstring></argsstring>
+        <name>m_sequence_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="52" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a0dcf74f47873714353f58391cbf985c7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool m_no_ack</definition>
+        <argsstring></argsstring>
+        <name>m_no_ack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="55" column="8" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a6131f8cec59d3f9270d4a96e8b5eed79" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t m_crc_length</definition>
+        <argsstring></argsstring>
+        <name>m_crc_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="58" column="11" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1ad719249471c8da243c9b3c56167e69f3" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* m_address</definition>
+        <argsstring></argsstring>
+        <name>m_address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="61" column="12" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a1f3cd9d10edc66f40a3b5c81ef254f06" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* m_payload</definition>
+        <argsstring></argsstring>
+        <name>m_payload</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="64" column="12" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1a9d28b5385aaead272d4d38c563060287" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* m_crc</definition>
+        <argsstring></argsstring>
+        <name>m_crc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="67" column="12" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enhanced__shockburst__packet_8h_1aba64ed33448bd5f274f64a091a4d1721" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* m_packet_bytes</definition>
+        <argsstring></argsstring>
+        <name>m_packet_bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="70" column="12" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1af91d36bffda4a1db37505fa23ca5f08b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class <ref refid="classenhanced__shockburst__packet" kindref="compound">enhanced_shockburst_packet</ref></type>
+        <definition>class enhanced_shockburst_packet __attribute__</definition>
+        <argsstring>((packed))</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(packed)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="1" column="0" declfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" declline="1" declcolumn="0"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a2cec2a8023173208631f547f3c498caf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>__attribute__::enhanced_shockburst_packet</definition>
+        <argsstring>(uint8_t address_length, uint8_t payload_length, uint8_t sequence_number, uint8_t no_ack, uint8_t crc_length, uint8_t *address, uint8_t *payload)</argsstring>
+        <name>enhanced_shockburst_packet</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>address_length</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>payload_length</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>sequence_number</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>no_ack</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>crc_length</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="3" column="3" declfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" declline="3" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a9a5965d960553ffec6a500c05e0e7ce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>__attribute__::~enhanced_shockburst_packet</definition>
+        <argsstring>()</argsstring>
+        <name>~enhanced_shockburst_packet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="13" column="3" declfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" declline="13" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1abaaad394d7e92aa8cfd4f25a058c787e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>static uint16_t __attribute__::crc_update</definition>
+        <argsstring>(uint16_t crc, uint8_t data, uint8_t bits=8)</argsstring>
+        <name>crc_update</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>crc</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bits</declname>
+          <defval>8</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="23" column="19" declfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" declline="23" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a18a0313cddeb4ea6d12c8cbaaab2d726" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void __attribute__::print</definition>
+        <argsstring>()</argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="26" column="8" declfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" declline="26" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a15a12e237f3042f19750d27533a4ebe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t __attribute__::payload_length</definition>
+        <argsstring>()</argsstring>
+        <name>payload_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="29" column="17" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1ade8d0242d23a25a6163f2bd2bd38f8e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t __attribute__::bytes_length</definition>
+        <argsstring>()</argsstring>
+        <name>bytes_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="31" column="17" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1ad529c65e4f7d173a9cb8704ef7769097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t __attribute__::sequence_number</definition>
+        <argsstring>()</argsstring>
+        <name>sequence_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="32" column="17" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1ae143f1f7a850b5dd65d741fc6547d176" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t __attribute__::no_ack</definition>
+        <argsstring>()</argsstring>
+        <name>no_ack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="33" column="17" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a22e8ee037d6279de3e5e27c3a27504f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* __attribute__::address</definition>
+        <argsstring>()</argsstring>
+        <name>address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="34" column="18" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a881767adca66d631e2d12dbedf26cfb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* __attribute__::payload</definition>
+        <argsstring>()</argsstring>
+        <name>payload</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="35" column="18" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a644562a6d88dacd8a80ed3adb1150935" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* __attribute__::crc</definition>
+        <argsstring>()</argsstring>
+        <name>crc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="36" column="18" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="enhanced__shockburst__packet_8h_1a2f466039f9079d401ca9195ae4f51094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* __attribute__::bytes</definition>
+        <argsstring>()</argsstring>
+        <name>bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" line="37" column="18" bodyfile="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.h"/>
+  </compounddef>
+</doxygen>

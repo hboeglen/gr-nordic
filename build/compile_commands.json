@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/herve/Documents/gr-nordic_38/build/lib",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_THREAD_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dgnuradio_nordic_EXPORTS -I/home/herve/Documents/gr-nordic_38/lib/../include -isystem /usr/include/python3.10  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC -o CMakeFiles/gnuradio-nordic.dir/nordic_tx_impl.cc.o -c /home/herve/Documents/gr-nordic_38/lib/nordic_tx_impl.cc",
+  "file": "/home/herve/Documents/gr-nordic_38/lib/nordic_tx_impl.cc"
+},
+{
+  "directory": "/home/herve/Documents/gr-nordic_38/build/lib",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_THREAD_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dgnuradio_nordic_EXPORTS -I/home/herve/Documents/gr-nordic_38/lib/../include -isystem /usr/include/python3.10  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC -o CMakeFiles/gnuradio-nordic.dir/bit_shifting_byte_vector.cc.o -c /home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.cc",
+  "file": "/home/herve/Documents/gr-nordic_38/lib/bit_shifting_byte_vector.cc"
+},
+{
+  "directory": "/home/herve/Documents/gr-nordic_38/build/lib",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_THREAD_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dgnuradio_nordic_EXPORTS -I/home/herve/Documents/gr-nordic_38/lib/../include -isystem /usr/include/python3.10  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC -o CMakeFiles/gnuradio-nordic.dir/nordic_rx_impl.cc.o -c /home/herve/Documents/gr-nordic_38/lib/nordic_rx_impl.cc",
+  "file": "/home/herve/Documents/gr-nordic_38/lib/nordic_rx_impl.cc"
+},
+{
+  "directory": "/home/herve/Documents/gr-nordic_38/build/lib",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_THREAD_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dgnuradio_nordic_EXPORTS -I/home/herve/Documents/gr-nordic_38/lib/../include -isystem /usr/include/python3.10  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC -o CMakeFiles/gnuradio-nordic.dir/enhanced_shockburst_packet.cc.o -c /home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.cc",
+  "file": "/home/herve/Documents/gr-nordic_38/lib/enhanced_shockburst_packet.cc"
+},
+{
+  "directory": "/home/herve/Documents/gr-nordic_38/build/python/nordic/bindings",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DBOOST_UNIT_TEST_FRAMEWORK_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dnordic_python_EXPORTS -I/home/herve/Documents/gr-nordic_38/build/python/nordic/bindings -I/home/herve/Documents/gr-nordic_38/python/nordic/bindings/../../../lib -I/home/herve/Documents/gr-nordic_38/python/nordic/bindings/../../../include -I/home/herve/Documents/gr-nordic_38/lib/../include -isystem /usr/include/python3.10 -isystem /usr/lib/python3/dist-packages/numpy/core/include  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC -fvisibility=hidden -Wno-unused-variable -flto -fno-fat-lto-objects -o CMakeFiles/nordic_python.dir/nordic_rx_python.cc.o -c /home/herve/Documents/gr-nordic_38/python/nordic/bindings/nordic_rx_python.cc",
+  "file": "/home/herve/Documents/gr-nordic_38/python/nordic/bindings/nordic_rx_python.cc"
+},
+{
+  "directory": "/home/herve/Documents/gr-nordic_38/build/python/nordic/bindings",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DBOOST_UNIT_TEST_FRAMEWORK_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dnordic_python_EXPORTS -I/home/herve/Documents/gr-nordic_38/build/python/nordic/bindings -I/home/herve/Documents/gr-nordic_38/python/nordic/bindings/../../../lib -I/home/herve/Documents/gr-nordic_38/python/nordic/bindings/../../../include -I/home/herve/Documents/gr-nordic_38/lib/../include -isystem /usr/include/python3.10 -isystem /usr/lib/python3/dist-packages/numpy/core/include  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC -fvisibility=hidden -Wno-unused-variable -flto -fno-fat-lto-objects -o CMakeFiles/nordic_python.dir/nordic_tx_python.cc.o -c /home/herve/Documents/gr-nordic_38/python/nordic/bindings/nordic_tx_python.cc",
+  "file": "/home/herve/Documents/gr-nordic_38/python/nordic/bindings/nordic_tx_python.cc"
+},
+{
+  "directory": "/home/herve/Documents/gr-nordic_38/build/python/nordic/bindings",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_DATE_TIME_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DBOOST_UNIT_TEST_FRAMEWORK_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dnordic_python_EXPORTS -I/home/herve/Documents/gr-nordic_38/build/python/nordic/bindings -I/home/herve/Documents/gr-nordic_38/python/nordic/bindings/../../../lib -I/home/herve/Documents/gr-nordic_38/python/nordic/bindings/../../../include -I/home/herve/Documents/gr-nordic_38/lib/../include -isystem /usr/include/python3.10 -isystem /usr/lib/python3/dist-packages/numpy/core/include  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC -fvisibility=hidden -Wno-unused-variable -flto -fno-fat-lto-objects -o CMakeFiles/nordic_python.dir/python_bindings.cc.o -c /home/herve/Documents/gr-nordic_38/python/nordic/bindings/python_bindings.cc",
+  "file": "/home/herve/Documents/gr-nordic_38/python/nordic/bindings/python_bindings.cc"
+}
+]
