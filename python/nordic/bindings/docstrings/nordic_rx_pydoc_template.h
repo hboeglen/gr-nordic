@@ -18,16 +18,7 @@
 static const char* __doc_gr_nordic_nordic_rx = R"doc()doc";
 
 
-static const char* __doc_gr_nordic_nordic_rx_nordic_rx_0 = R"doc()doc";
-
-
-static const char* __doc_gr_nordic_nordic_rx_nordic_rx_1 = R"doc()doc";
+static const char* __doc_gr_nordic_nordic_rx_nordic_rx = R"doc()doc";
 
 
 static const char* __doc_gr_nordic_nordic_rx_make = R"doc()doc";
-
-
-static const char* __doc_gr_nordic_nordic_rx_get_channel = R"doc()doc";
-
-
-static const char* __doc_gr_nordic_nordic_rx_set_channel = R"doc()doc";

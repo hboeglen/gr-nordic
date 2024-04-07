@@ -14,7 +14,7 @@
 /* BINDTOOL_GEN_AUTOMATIC(0)                                                       */
 /* BINDTOOL_USE_PYGCCXML(0)                                                        */
 /* BINDTOOL_HEADER_FILE(nordic_rx.h)                                        */
-/* BINDTOOL_HEADER_FILE_HASH(0f18e8f44d109be7c470c43473b8b212)                     */
+/* BINDTOOL_HEADER_FILE_HASH(6a256fbb292202e218e883367e828be7)                     */
 /***********************************************************************************/
 
 #include <pybind11/complex.h>
@@ -39,21 +39,8 @@ void bind_nordic_rx(py::module& m)
                gr::basic_block,
                std::shared_ptr<nordic_rx>>(m, "nordic_rx", D(nordic_rx))
 
-        .def(py::init(&nordic_rx::make),
-             py::arg("channel") = 0,
-             py::arg("address_length") = 5,
-             py::arg("crc_length") = 2,
-             py::arg("data_rate") = 0,
-             D(nordic_rx, make))
+        .def(py::init(&nordic_rx::make), D(nordic_rx, make))
 
-
-        .def("get_channel", &nordic_rx::get_channel, D(nordic_rx, get_channel))
-
-
-        .def("set_channel",
-             &nordic_rx::set_channel,
-             py::arg("channel"),
-             D(nordic_rx, set_channel))
 
         ;
 }

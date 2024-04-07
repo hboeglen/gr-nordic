@@ -42,6 +42,8 @@ class nordictap_transmitter(gr.sync_block):
         if self.sequence_number == 4:
         	self.sequence_number = 0
         	
+        #print address
+        #print('SEQ=' + str(self.sequence_number))
         # Build a payload
         nordictap = [self.channel_index] + [
             channel, 2, len(self.address), len(self.payload), self.sequence_number, 0, 2]
@@ -51,10 +53,13 @@ class nordictap_transmitter(gr.sync_block):
             nordictap.append(ord(c))
         #print nordictap
         self.sequence_number += 1
-        
         # Transmit packet
+        #vec = pmt.make_u8vector(len(nordictap), 0)
         vec = pmt.init_u8vector(len(nordictap), nordictap)
+        #for x in range(len(nordictap)):
+         #   pmt.u8vector_set(vec, x, nordictap[x])
         self.message_port_pub(pmt.intern("nordictap_out"), vec)
+        #time.sleep(0.2)
         
  # Nordic Printer
 class nordictap_printer(gr.sync_block):

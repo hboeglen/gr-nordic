@@ -14,7 +14,7 @@
 /* BINDTOOL_GEN_AUTOMATIC(0)                                                       */
 /* BINDTOOL_USE_PYGCCXML(0)                                                        */
 /* BINDTOOL_HEADER_FILE(nordic_tx.h)                                        */
-/* BINDTOOL_HEADER_FILE_HASH(dd6790ac9ad86e991c82fb30337e66fc)                     */
+/* BINDTOOL_HEADER_FILE_HASH(3899d768ad4cf333fd7e7530320ef1e4)                     */
 /***********************************************************************************/
 
 #include <pybind11/complex.h>
@@ -39,7 +39,7 @@ void bind_nordic_tx(py::module& m)
                gr::basic_block,
                std::shared_ptr<nordic_tx>>(m, "nordic_tx", D(nordic_tx))
 
-        .def(py::init(&nordic_tx::make), py::arg("channel_count") = 1, D(nordic_tx, make))
+        .def(py::init(&nordic_tx::make), D(nordic_tx, make))
 
 
         ;
