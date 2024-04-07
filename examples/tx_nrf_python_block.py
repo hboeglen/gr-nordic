@@ -6,9 +6,9 @@
 #
 # GNU Radio Python Flow Graph
 # Title: Tx Nrf Python Block
-# GNU Radio version: v3.8.2.0-101-g57a4df75
+# GNU Radio version: 3.10.4.0
 
-from distutils.version import StrictVersion
+from packaging.version import Version as StrictVersion
 
 if __name__ == '__main__':
     import ctypes
@@ -29,21 +29,23 @@ import pmt
 from gnuradio import digital
 from gnuradio import filter
 from gnuradio import gr
+from gnuradio.fft import window
 import sys
 import signal
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
-import iio
-import nordic
-import foo
+from gnuradio import iio
+from gnuradio import nordic
+
+
 
 from gnuradio import qtgui
 
 class tx_nrf_python_block(gr.top_block, Qt.QWidget):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Tx Nrf Python Block")
+        gr.top_block.__init__(self, "Tx Nrf Python Block", catch_exceptions=True)
         Qt.QWidget.__init__(self)
         self.setWindowTitle("Tx Nrf Python Block")
         qtgui.util.check_set_qss()
@@ -78,26 +80,28 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
         ##################################################
         self.symbol_rate = symbol_rate = 2e6
         self.samp_rate = samp_rate = 4e6
-        self.taps = taps = firdes.low_pass(1.0, samp_rate, (symbol_rate/2),250e3, firdes.WIN_HAMMING, 6.76)
+        self.ch = ch = 120
+        self.taps = taps = firdes.low_pass(1.0, samp_rate, (symbol_rate/2),250e3, window.WIN_HAMMING, 6.76)
         self.payload = payload = "24.25"
-        self.freq = freq = 2520e6
+        self.freq = freq = 2400e6+ch*1e6
 
         ##################################################
         # Blocks
         ##################################################
         self.qtgui_time_sink_x_0_0 = qtgui.time_sink_f(
-            1024, #size
+            512, #size
             samp_rate, #samp_rate
             "", #name
-            1 #number of inputs
+            1, #number of inputs
+            None # parent
         )
         self.qtgui_time_sink_x_0_0.set_update_time(0.10)
-        self.qtgui_time_sink_x_0_0.set_y_axis(-1, 1)
+        self.qtgui_time_sink_x_0_0.set_y_axis(0, 1.2)
 
         self.qtgui_time_sink_x_0_0.set_y_label('Amplitude', "")
 
         self.qtgui_time_sink_x_0_0.enable_tags(True)
-        self.qtgui_time_sink_x_0_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "tx_sob")
+        self.qtgui_time_sink_x_0_0.set_trigger_mode(qtgui.TRIG_MODE_TAG, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "packet_len")
         self.qtgui_time_sink_x_0_0.enable_autoscale(False)
         self.qtgui_time_sink_x_0_0.enable_grid(False)
         self.qtgui_time_sink_x_0_0.enable_axis_labels(True)
@@ -130,13 +134,14 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
             self.qtgui_time_sink_x_0_0.set_line_marker(i, markers[i])
             self.qtgui_time_sink_x_0_0.set_line_alpha(i, alphas[i])
 
-        self._qtgui_time_sink_x_0_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0_0.pyqwidget(), Qt.QWidget)
+        self._qtgui_time_sink_x_0_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0_0.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_0_win)
         self.qtgui_time_sink_x_0 = qtgui.time_sink_c(
-            1024*2, #size
+            1024, #size
             samp_rate, #samp_rate
             "", #name
-            1 #number of inputs
+            1, #number of inputs
+            None # parent
         )
         self.qtgui_time_sink_x_0.set_update_time(0.10)
         self.qtgui_time_sink_x_0.set_y_axis(-1, 1)
@@ -145,7 +150,7 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
 
         self.qtgui_time_sink_x_0.enable_tags(True)
         self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_TAG, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "packet_len")
-        self.qtgui_time_sink_x_0.enable_autoscale(False)
+        self.qtgui_time_sink_x_0.enable_autoscale(True)
         self.qtgui_time_sink_x_0.enable_grid(False)
         self.qtgui_time_sink_x_0.enable_axis_labels(True)
         self.qtgui_time_sink_x_0.enable_control_panel(False)
@@ -180,7 +185,7 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
             self.qtgui_time_sink_x_0.set_line_marker(i, markers[i])
             self.qtgui_time_sink_x_0.set_line_alpha(i, alphas[i])
 
-        self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.pyqwidget(), Qt.QWidget)
+        self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_win)
         self.pfb_synthesizer_ccf_0 = filter.pfb_synthesizer_ccf(
             1,
@@ -188,16 +193,22 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
             False)
         self.pfb_synthesizer_ccf_0.set_channel_map([])
         self.pfb_synthesizer_ccf_0.declare_sample_delay(0)
-        self.nordic_nordictap_transmitter_0 = nordic.nordictap_transmitter(120, '\xE7\xE7\xE7\xE7\xE7', payload, 0, 0)
+        self.nordic_nordictap_transmitter_0 = nordic.nordictap_transmitter(ch, '\xE7\xE7\xE7\xE7\xE7', payload, 0, 0)
         self.nordic_nordic_tx_0 = nordic.nordic_tx(1)
-        self.iio_pluto_sink_0 = iio.pluto_sink('ip:192.168.2.1', int(freq), int(samp_rate), 2000000, 0x200, False, 10.0, '', True)
-        self.foo_burst_tagger_0 = foo.burst_tagger(pmt.intern("packet_len"), int(8*samp_rate/symbol_rate))
+        self.iio_pluto_sink_0 = iio.fmcomms2_sink_fc32('ip:192.168.2.1' if 'ip:192.168.2.1' else iio.get_pluto_uri(), [True, True], 0x200, False)
+        self.iio_pluto_sink_0.set_len_tag_key('')
+        self.iio_pluto_sink_0.set_bandwidth(2000000)
+        self.iio_pluto_sink_0.set_frequency((int(freq)+int(15e3)))
+        self.iio_pluto_sink_0.set_samplerate(int(samp_rate))
+        self.iio_pluto_sink_0.set_attenuation(0, 10)
+        self.iio_pluto_sink_0.set_filter_params('Auto', '', 0, 0)
         self.digital_gfsk_mod_0 = digital.gfsk_mod(
-            samples_per_symbol=int(samp_rate/symbol_rate),
-            sensitivity=1.5707/(samp_rate/symbol_rate),
+            samples_per_symbol=(int(samp_rate/symbol_rate)),
+            sensitivity=(1.5707/(samp_rate/symbol_rate)),
             bt=0.5,
             verbose=False,
-            log=False)
+            log=False,
+            do_unpack=True)
         self.blocks_repack_bits_bb_0 = blocks.repack_bits_bb(8, 1, "", False, gr.GR_MSB_FIRST)
         self.blocks_message_strobe_0 = blocks.message_strobe(pmt.intern("trig"), 1000)
         self.blocks_char_to_float_0 = blocks.char_to_float(1, 1)
@@ -210,9 +221,8 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
         self.msg_connect((self.nordic_nordictap_transmitter_0, 'nordictap_out'), (self.nordic_nordic_tx_0, 'nordictap_in'))
         self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_time_sink_x_0_0, 0))
         self.connect((self.blocks_repack_bits_bb_0, 0), (self.blocks_char_to_float_0, 0))
-        self.connect((self.digital_gfsk_mod_0, 0), (self.foo_burst_tagger_0, 0))
-        self.connect((self.foo_burst_tagger_0, 0), (self.pfb_synthesizer_ccf_0, 0))
-        self.connect((self.foo_burst_tagger_0, 0), (self.qtgui_time_sink_x_0, 0))
+        self.connect((self.digital_gfsk_mod_0, 0), (self.pfb_synthesizer_ccf_0, 0))
+        self.connect((self.digital_gfsk_mod_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.nordic_nordic_tx_0, 0), (self.blocks_repack_bits_bb_0, 0))
         self.connect((self.nordic_nordic_tx_0, 0), (self.digital_gfsk_mod_0, 0))
         self.connect((self.pfb_synthesizer_ccf_0, 0), (self.iio_pluto_sink_0, 0))
@@ -221,6 +231,9 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "tx_nrf_python_block")
         self.settings.setValue("geometry", self.saveGeometry())
+        self.stop()
+        self.wait()
+
         event.accept()
 
     def get_symbol_rate(self):
@@ -228,17 +241,24 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
 
     def set_symbol_rate(self, symbol_rate):
         self.symbol_rate = symbol_rate
-        self.set_taps(firdes.low_pass(1.0, self.samp_rate, (self.symbol_rate/2), 250e3, firdes.WIN_HAMMING, 6.76))
+        self.set_taps(firdes.low_pass(1.0, self.samp_rate, (self.symbol_rate/2), 250e3, window.WIN_HAMMING, 6.76))
 
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.set_taps(firdes.low_pass(1.0, self.samp_rate, (self.symbol_rate/2), 250e3, firdes.WIN_HAMMING, 6.76))
-        self.iio_pluto_sink_0.set_params(int(self.freq), int(self.samp_rate), 2000000, 10.0, '', True)
+        self.set_taps(firdes.low_pass(1.0, self.samp_rate, (self.symbol_rate/2), 250e3, window.WIN_HAMMING, 6.76))
+        self.iio_pluto_sink_0.set_samplerate(int(self.samp_rate))
         self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate)
         self.qtgui_time_sink_x_0_0.set_samp_rate(self.samp_rate)
+
+    def get_ch(self):
+        return self.ch
+
+    def set_ch(self, ch):
+        self.ch = ch
+        self.set_freq(2400e6+self.ch*1e6)
 
     def get_taps(self):
         return self.taps
@@ -258,8 +278,7 @@ class tx_nrf_python_block(gr.top_block, Qt.QWidget):
 
     def set_freq(self, freq):
         self.freq = freq
-        self.iio_pluto_sink_0.set_params(int(self.freq), int(self.samp_rate), 2000000, 10.0, '', True)
-
+        self.iio_pluto_sink_0.set_frequency((int(self.freq)+int(15e3)))
 
 
 
@@ -278,6 +297,9 @@ def main(top_block_cls=tx_nrf_python_block, options=None):
     tb.show()
 
     def sig_handler(sig=None, frame=None):
+        tb.stop()
+        tb.wait()
+
         Qt.QApplication.quit()
 
     signal.signal(signal.SIGINT, sig_handler)
@@ -287,11 +309,6 @@ def main(top_block_cls=tx_nrf_python_block, options=None):
     timer.start(500)
     timer.timeout.connect(lambda: None)
 
-    def quitting():
-        tb.stop()
-        tb.wait()
-
-    qapp.aboutToQuit.connect(quitting)
     qapp.exec_()
 
 if __name__ == '__main__':

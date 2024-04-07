@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 
-from gnuradio import gr, blocks, digital, filter
+from gnuradio import gr, blocks, digital, filter, nordic, iio
 from gnuradio.filter import firdes
 import _thread
 #import osmosdr
-import nordic
+#import nordic
 import pmt
 import struct
 import time
-import iio
+#import iio
 
 
 class top_block(gr.top_block):

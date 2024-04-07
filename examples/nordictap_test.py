@@ -6,9 +6,9 @@
 #
 # GNU Radio Python Flow Graph
 # Title: Nordictap Test
-# GNU Radio version: 3.8.2.0
+# GNU Radio version: 3.10.4.0
 
-from distutils.version import StrictVersion
+from packaging.version import Version as StrictVersion
 
 if __name__ == '__main__':
     import ctypes
@@ -24,20 +24,23 @@ from gnuradio import blocks
 import pmt
 from gnuradio import gr
 from gnuradio.filter import firdes
+from gnuradio.fft import window
 import sys
 import signal
 from PyQt5 import Qt
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
-import nordic
+from gnuradio import nordic
+
+
 
 from gnuradio import qtgui
 
 class nordictap_test(gr.top_block, Qt.QWidget):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Nordictap Test")
+        gr.top_block.__init__(self, "Nordictap Test", catch_exceptions=True)
         Qt.QWidget.__init__(self)
         self.setWindowTitle("Nordictap Test")
         qtgui.util.check_set_qss()
@@ -77,8 +80,7 @@ class nordictap_test(gr.top_block, Qt.QWidget):
         ##################################################
         self.nordic_nordictap_transmitter_0 = nordic.nordictap_transmitter(1, '\x55\x55\x55\x55\x55', '\x20\x20\x20\x20\x32\x30\x2E\x30', 0, 0)
         self.blocks_message_strobe_0 = blocks.message_strobe(pmt.intern("trig"), 1000)
-        self.blocks_message_debug_0 = blocks.message_debug()
-
+        self.blocks_message_debug_0 = blocks.message_debug(True)
 
 
         ##################################################
@@ -91,6 +93,9 @@ class nordictap_test(gr.top_block, Qt.QWidget):
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "nordictap_test")
         self.settings.setValue("geometry", self.saveGeometry())
+        self.stop()
+        self.wait()
+
         event.accept()
 
     def get_samp_rate(self):
@@ -98,7 +103,6 @@ class nordictap_test(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-
 
 
 
@@ -117,6 +121,9 @@ def main(top_block_cls=nordictap_test, options=None):
     tb.show()
 
     def sig_handler(sig=None, frame=None):
+        tb.stop()
+        tb.wait()
+
         Qt.QApplication.quit()
 
     signal.signal(signal.SIGINT, sig_handler)
@@ -126,11 +133,6 @@ def main(top_block_cls=nordictap_test, options=None):
     timer.start(500)
     timer.timeout.connect(lambda: None)
 
-    def quitting():
-        tb.stop()
-        tb.wait()
-
-    qapp.aboutToQuit.connect(quitting)
     qapp.exec_()
 
 if __name__ == '__main__':

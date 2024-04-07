@@ -1,6 +1,7 @@
 options:
   parameters:
     author: ''
+    catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
     comment: ''
@@ -50,11 +51,12 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
+    en_uvec: 'True'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [785, 220]
+    coordinate: [832, 216.0]
     rotation: 0
     state: enabled
 - name: blocks_message_strobe_0
@@ -91,7 +93,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [402, 183]
+    coordinate: [448, 180.0]
     rotation: 0
     state: enabled
 
@@ -101,3 +103,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.4.0

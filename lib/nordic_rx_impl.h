@@ -21,7 +21,7 @@
 #ifndef INCLUDED_NORDIC_NORDIC_RX_IMPL_H
 #define INCLUDED_NORDIC_NORDIC_RX_IMPL_H
 
-#include <nordic/nordic_rx.h>
+#include <gnuradio/nordic/nordic_rx.h>
 #include <boost/crc.hpp>
 #include "bit_shifting_byte_vector.h"
 #include "enhanced_shockburst_packet.h"
@@ -37,9 +37,9 @@ namespace gr {
       boost::crc_optimal<16, 0x1021, 0, 0, false, false> m_crc;
 
       // Configuration 
+      uint8_t m_channel; 
       uint8_t m_address_length;
       uint8_t m_crc_length;
-      uint8_t m_channel; 
       uint8_t m_data_rate;
 
       // Incoming bit/byte vector

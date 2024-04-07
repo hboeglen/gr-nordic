@@ -2,7 +2,7 @@ id: nordic_nordictap_transmitter
 label: nordictap_transmitter
 category: '[Nordic]'
 templates:
-  imports: import nordic
+  imports: from gnuradio import nordic
   make: nordic.nordictap_transmitter(${channel_count}, ${address}, ${payload}, ${channel_index}, ${sequence_number})
 parameters:
 - id: channel_count

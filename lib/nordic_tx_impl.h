@@ -21,7 +21,7 @@
 #ifndef INCLUDED_NORDIC_NORDIC_TX_IMPL_H
 #define INCLUDED_NORDIC_NORDIC_TX_IMPL_H
 
-#include <nordic/nordic_tx.h>
+#include <gnuradio/nordic/nordic_tx.h>
 #include <queue>
 
 namespace gr {

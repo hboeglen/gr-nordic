@@ -2,7 +2,7 @@ id: nordic_nordic_rx
 label: nordic rx
 category: '[Nordic]'
 templates:
-  imports: import nordic
+  imports: from gnuradio import nordic
   make: nordic.nordic_rx(${channel}, ${address_length}, ${crc_length}, ${data_rate})
 parameters:
 - id: channel

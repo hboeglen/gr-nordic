@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: GPL-3.0
 #
 # GNU Radio Python Flow Graph
-# Title: Tx Nrf Foo
-# GNU Radio version: 3.10.4.0
+# Title: Pluto Rx
+# GNU Radio version: 3.8.5.0
 
-from packaging.version import Version as StrictVersion
+from distutils.version import StrictVersion
 
 if __name__ == '__main__':
     import ctypes
@@ -24,31 +24,23 @@ from PyQt5 import Qt
 from gnuradio import qtgui
 from gnuradio.filter import firdes
 import sip
-from gnuradio import blocks
-import pmt
-from gnuradio import digital
-from gnuradio import filter
+from gnuradio import analog
 from gnuradio import gr
-from gnuradio.fft import window
 import sys
 import signal
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
-from gnuradio import iio
-from gnuradio import nordic
-import foo
-
-
+import iio
 
 from gnuradio import qtgui
 
-class tx_nrf_foo(gr.top_block, Qt.QWidget):
+class pluto_rx(gr.top_block, Qt.QWidget):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Tx Nrf Foo", catch_exceptions=True)
+        gr.top_block.__init__(self, "Pluto Rx")
         Qt.QWidget.__init__(self)
-        self.setWindowTitle("Tx Nrf Foo")
+        self.setWindowTitle("Pluto Rx")
         qtgui.util.check_set_qss()
         try:
             self.setWindowIcon(Qt.QIcon.fromTheme('gnuradio-grc'))
@@ -66,7 +58,7 @@ class tx_nrf_foo(gr.top_block, Qt.QWidget):
         self.top_grid_layout = Qt.QGridLayout()
         self.top_layout.addLayout(self.top_grid_layout)
 
-        self.settings = Qt.QSettings("GNU Radio", "tx_nrf_foo")
+        self.settings = Qt.QSettings("GNU Radio", "pluto_rx")
 
         try:
             if StrictVersion(Qt.qVersion()) < StrictVersion("5.0.0"):
@@ -79,31 +71,24 @@ class tx_nrf_foo(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.symbol_rate = symbol_rate = 2e6
         self.samp_rate = samp_rate = 4e6
-        self.payload = payload = "22.75"
-        self.address = address = [0, 120, 2, 5, 8, 2, 0, 2, 231, 231, 231, 231, 231]
-        self.taps = taps = firdes.low_pass(1.0, samp_rate, (symbol_rate/2)*1.5,250e3, window.WIN_HAMMING, 6.76)
-        self.pkt_vec = pkt_vec = address + [ ord(x) for x in payload ]
-        self.freq = freq = 2520e6
 
         ##################################################
         # Blocks
         ##################################################
         self.qtgui_time_sink_x_0 = qtgui.time_sink_c(
-            1024, #size
+            8192*128, #size
             samp_rate, #samp_rate
             "", #name
-            1, #number of inputs
-            None # parent
+            1 #number of inputs
         )
-        self.qtgui_time_sink_x_0.set_update_time(0.10)
-        self.qtgui_time_sink_x_0.set_y_axis(-1, 1)
+        self.qtgui_time_sink_x_0.set_update_time(0.25)
+        self.qtgui_time_sink_x_0.set_y_axis(-1.5, 1.5)
 
         self.qtgui_time_sink_x_0.set_y_label('Amplitude', "")
 
         self.qtgui_time_sink_x_0.enable_tags(True)
-        self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_TAG, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "packet_len")
+        self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
         self.qtgui_time_sink_x_0.enable_autoscale(False)
         self.qtgui_time_sink_x_0.enable_grid(False)
         self.qtgui_time_sink_x_0.enable_axis_labels(True)
@@ -139,109 +124,37 @@ class tx_nrf_foo(gr.top_block, Qt.QWidget):
             self.qtgui_time_sink_x_0.set_line_marker(i, markers[i])
             self.qtgui_time_sink_x_0.set_line_alpha(i, alphas[i])
 
-        self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.qwidget(), Qt.QWidget)
+        self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_win)
-        self.pfb_synthesizer_ccf_0 = filter.pfb_synthesizer_ccf(
-            1,
-            taps,
-            False)
-        self.pfb_synthesizer_ccf_0.set_channel_map([])
-        self.pfb_synthesizer_ccf_0.declare_sample_delay(0)
-        self.nordic_nordic_tx_0 = nordic.nordic_tx(1)
-        self.iio_pluto_sink_0 = iio.fmcomms2_sink_fc32('ip:192.168.2.1' if 'ip:192.168.2.1' else iio.get_pluto_uri(), [True, True], 0x200, False)
-        self.iio_pluto_sink_0.set_len_tag_key('')
-        self.iio_pluto_sink_0.set_bandwidth(2000000)
-        self.iio_pluto_sink_0.set_frequency(int(freq))
-        self.iio_pluto_sink_0.set_samplerate(int(samp_rate))
-        self.iio_pluto_sink_0.set_attenuation(0, 10.0)
-        self.iio_pluto_sink_0.set_filter_params('Auto', '', 0, 0)
-        self.foo_burst_tagger_0 = foo.burst_tagger(pmt.intern("packet_len"), (int(8*samp_rate/symbol_rate)))
-        self.digital_gfsk_mod_0 = digital.gfsk_mod(
-            samples_per_symbol=2,
-            sensitivity=(1.5707/2),
-            bt=0.5,
-            verbose=False,
-            log=False,
-            do_unpack=True)
-        self.blocks_message_strobe_0 = blocks.message_strobe(pmt.init_u8vector( len(pkt_vec),  pkt_vec), 1000)
+        self.iio_pluto_source_0 = iio.pluto_source('', 2400000000, int(samp_rate), 20000000, 32768, True, True, True, 'manual', 64, '', True)
+        self.analog_pwr_squelch_xx_0 = analog.pwr_squelch_cc(-35, 5e-4, 0, False)
 
 
         ##################################################
         # Connections
         ##################################################
-        self.msg_connect((self.blocks_message_strobe_0, 'strobe'), (self.nordic_nordic_tx_0, 'nordictap_in'))
-        self.connect((self.digital_gfsk_mod_0, 0), (self.foo_burst_tagger_0, 0))
-        self.connect((self.foo_burst_tagger_0, 0), (self.pfb_synthesizer_ccf_0, 0))
-        self.connect((self.nordic_nordic_tx_0, 0), (self.digital_gfsk_mod_0, 0))
-        self.connect((self.pfb_synthesizer_ccf_0, 0), (self.iio_pluto_sink_0, 0))
-        self.connect((self.pfb_synthesizer_ccf_0, 0), (self.qtgui_time_sink_x_0, 0))
+        self.connect((self.analog_pwr_squelch_xx_0, 0), (self.qtgui_time_sink_x_0, 0))
+        self.connect((self.iio_pluto_source_0, 0), (self.analog_pwr_squelch_xx_0, 0))
 
 
     def closeEvent(self, event):
-        self.settings = Qt.QSettings("GNU Radio", "tx_nrf_foo")
+        self.settings = Qt.QSettings("GNU Radio", "pluto_rx")
         self.settings.setValue("geometry", self.saveGeometry())
-        self.stop()
-        self.wait()
-
         event.accept()
-
-    def get_symbol_rate(self):
-        return self.symbol_rate
-
-    def set_symbol_rate(self, symbol_rate):
-        self.symbol_rate = symbol_rate
-        self.set_taps(firdes.low_pass(1.0, self.samp_rate, (self.symbol_rate/2)*1.5, 250e3, window.WIN_HAMMING, 6.76))
 
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.set_taps(firdes.low_pass(1.0, self.samp_rate, (self.symbol_rate/2)*1.5, 250e3, window.WIN_HAMMING, 6.76))
-        self.iio_pluto_sink_0.set_samplerate(int(self.samp_rate))
+        self.iio_pluto_source_0.set_params(2400000000, int(self.samp_rate), 20000000, True, True, True, 'manual', 64, '', True)
         self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate)
 
-    def get_payload(self):
-        return self.payload
-
-    def set_payload(self, payload):
-        self.payload = payload
-        self.set_pkt_vec(self.address + [ ord(x) for x in self.payload ])
-
-    def get_address(self):
-        return self.address
-
-    def set_address(self, address):
-        self.address = address
-        self.set_pkt_vec(self.address + [ ord(x) for x in self.payload ])
-
-    def get_taps(self):
-        return self.taps
-
-    def set_taps(self, taps):
-        self.taps = taps
-        self.pfb_synthesizer_ccf_0.set_taps(self.taps)
-
-    def get_pkt_vec(self):
-        return self.pkt_vec
-
-    def set_pkt_vec(self, pkt_vec):
-        self.pkt_vec = pkt_vec
-        self.blocks_message_strobe_0.set_msg(pmt.init_u8vector( len(self.pkt_vec),  self.pkt_vec))
-
-    def get_freq(self):
-        return self.freq
-
-    def set_freq(self, freq):
-        self.freq = freq
-        self.iio_pluto_sink_0.set_frequency(int(self.freq))
 
 
 
 
-def main(top_block_cls=tx_nrf_foo, options=None):
-    if gr.enable_realtime_scheduling() != gr.RT_OK:
-        print("Error: failed to enable real-time scheduling.")
+def main(top_block_cls=pluto_rx, options=None):
 
     if StrictVersion("4.5.0") <= StrictVersion(Qt.qVersion()) < StrictVersion("5.0.0"):
         style = gr.prefs().get_string('qtgui', 'style', 'raster')
@@ -255,9 +168,6 @@ def main(top_block_cls=tx_nrf_foo, options=None):
     tb.show()
 
     def sig_handler(sig=None, frame=None):
-        tb.stop()
-        tb.wait()
-
         Qt.QApplication.quit()
 
     signal.signal(signal.SIGINT, sig_handler)
@@ -267,6 +177,11 @@ def main(top_block_cls=tx_nrf_foo, options=None):
     timer.start(500)
     timer.timeout.connect(lambda: None)
 
+    def quitting():
+        tb.stop()
+        tb.wait()
+
+    qapp.aboutToQuit.connect(quitting)
     qapp.exec_()
 
 if __name__ == '__main__':

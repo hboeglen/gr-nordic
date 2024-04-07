@@ -1,6 +1,7 @@
 options:
   parameters:
     author: ''
+    catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
     comment: ''
@@ -338,8 +339,8 @@ blocks:
     width8: '1'
     width9: '1'
     ylabel: Amplitude
-    ymax: '1'
-    ymin: '-1'
+    ymax: '1.2'
+    ymin: '0'
     yunit: '""'
   states:
     bus_sink: false
@@ -362,3 +363,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.4.0

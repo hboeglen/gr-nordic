@@ -2,7 +2,7 @@ id: nordic_nordictap_printer
 label: nordictap_printer
 category: '[Nordic]'
 templates:
-  imports: import nordic
+  imports: from gnuradio import nordic
   make: nordic.nordictap_printer()
 inputs:
 - label: nordictap_in

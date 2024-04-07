@@ -1,0 +1,4 @@
+./include/gnuradio/nordic/nordic_rx.hNo c++ parser found. Please install castxml.
+./include/gnuradio/nordic/nordic_tx.hNo c++ parser found. Please install castxml.
+./include/gnuradio/nordic/nordic_rx.hError occurred while running CASTXML xml file does not exist
+./include/gnuradio/nordic/nordic_tx.hError occurred while running CASTXML xml file does not exist

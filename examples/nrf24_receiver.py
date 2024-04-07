@@ -6,9 +6,9 @@
 #
 # GNU Radio Python Flow Graph
 # Title: Nrf24 Receiver
-# GNU Radio version: v3.8.2.0-101-g57a4df75
+# GNU Radio version: 3.10.4.0
 
-from distutils.version import StrictVersion
+from packaging.version import Version as StrictVersion
 
 if __name__ == '__main__':
     import ctypes
@@ -25,25 +25,29 @@ from gnuradio import qtgui
 from gnuradio.filter import firdes
 import sip
 from gnuradio import analog
-import math
 from gnuradio import blocks
-import pmt
 from gnuradio import digital
 from gnuradio import filter
 from gnuradio import gr
+from gnuradio.fft import window
 import sys
 import signal
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
-import nordic
+from gnuradio import nordic
+from gnuradio import uhd
+import time
+import numpy
+
+
 
 from gnuradio import qtgui
 
 class nrf24_receiver(gr.top_block, Qt.QWidget):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Nrf24 Receiver")
+        gr.top_block.__init__(self, "Nrf24 Receiver", catch_exceptions=True)
         Qt.QWidget.__init__(self)
         self.setWindowTitle("Nrf24 Receiver")
         qtgui.util.check_set_qss()
@@ -76,16 +80,81 @@ class nrf24_receiver(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
+        self.symbol_rate = symbol_rate = 2e6
         self.samp_rate = samp_rate = 4e6
 
         ##################################################
         # Blocks
         ##################################################
+        self.uhd_usrp_source_0 = uhd.usrp_source(
+            ",".join(("", "")),
+            uhd.stream_args(
+                cpu_format="fc32",
+                args='',
+                channels=list(range(0,1)),
+            ),
+        )
+        self.uhd_usrp_source_0.set_samp_rate(samp_rate)
+        self.uhd_usrp_source_0.set_time_unknown_pps(uhd.time_spec(0))
+
+        self.uhd_usrp_source_0.set_center_freq(2520000000, 0)
+        self.uhd_usrp_source_0.set_antenna('TX/RX', 0)
+        self.uhd_usrp_source_0.set_bandwidth(2e6, 0)
+        self.uhd_usrp_source_0.set_gain(60, 0)
+        self.qtgui_time_sink_x_2_0_0 = qtgui.time_sink_f(
+            256, #size
+            samp_rate/(samp_rate/symbol_rate), #samp_rate
+            "", #name
+            1, #number of inputs
+            None # parent
+        )
+        self.qtgui_time_sink_x_2_0_0.set_update_time(0.10)
+        self.qtgui_time_sink_x_2_0_0.set_y_axis(-1, 1)
+
+        self.qtgui_time_sink_x_2_0_0.set_y_label('Amplitude', "")
+
+        self.qtgui_time_sink_x_2_0_0.enable_tags(True)
+        self.qtgui_time_sink_x_2_0_0.set_trigger_mode(qtgui.TRIG_MODE_TAG, qtgui.TRIG_SLOPE_POS, 0.5, 0, 0, "squelch_sob")
+        self.qtgui_time_sink_x_2_0_0.enable_autoscale(True)
+        self.qtgui_time_sink_x_2_0_0.enable_grid(False)
+        self.qtgui_time_sink_x_2_0_0.enable_axis_labels(True)
+        self.qtgui_time_sink_x_2_0_0.enable_control_panel(False)
+        self.qtgui_time_sink_x_2_0_0.enable_stem_plot(False)
+
+
+        labels = ['Signal 1', 'Signal 2', 'Signal 3', 'Signal 4', 'Signal 5',
+            'Signal 6', 'Signal 7', 'Signal 8', 'Signal 9', 'Signal 10']
+        widths = [1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1]
+        colors = ['blue', 'red', 'green', 'black', 'cyan',
+            'magenta', 'yellow', 'dark red', 'dark green', 'dark blue']
+        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
+            1.0, 1.0, 1.0, 1.0, 1.0]
+        styles = [1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1]
+        markers = [-1, -1, -1, -1, -1,
+            -1, -1, -1, -1, -1]
+
+
+        for i in range(1):
+            if len(labels[i]) == 0:
+                self.qtgui_time_sink_x_2_0_0.set_line_label(i, "Data {0}".format(i))
+            else:
+                self.qtgui_time_sink_x_2_0_0.set_line_label(i, labels[i])
+            self.qtgui_time_sink_x_2_0_0.set_line_width(i, widths[i])
+            self.qtgui_time_sink_x_2_0_0.set_line_color(i, colors[i])
+            self.qtgui_time_sink_x_2_0_0.set_line_style(i, styles[i])
+            self.qtgui_time_sink_x_2_0_0.set_line_marker(i, markers[i])
+            self.qtgui_time_sink_x_2_0_0.set_line_alpha(i, alphas[i])
+
+        self._qtgui_time_sink_x_2_0_0_win = sip.wrapinstance(self.qtgui_time_sink_x_2_0_0.qwidget(), Qt.QWidget)
+        self.top_layout.addWidget(self._qtgui_time_sink_x_2_0_0_win)
         self.qtgui_time_sink_x_1 = qtgui.time_sink_c(
             1024, #size
             samp_rate, #samp_rate
             "", #name
-            1 #number of inputs
+            1, #number of inputs
+            None # parent
         )
         self.qtgui_time_sink_x_1.set_update_time(0.10)
         self.qtgui_time_sink_x_1.set_y_axis(-1, 1)
@@ -94,7 +163,7 @@ class nrf24_receiver(gr.top_block, Qt.QWidget):
 
         self.qtgui_time_sink_x_1.enable_tags(True)
         self.qtgui_time_sink_x_1.set_trigger_mode(qtgui.TRIG_MODE_TAG, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "squelch_sob")
-        self.qtgui_time_sink_x_1.enable_autoscale(False)
+        self.qtgui_time_sink_x_1.enable_autoscale(True)
         self.qtgui_time_sink_x_1.enable_grid(False)
         self.qtgui_time_sink_x_1.enable_axis_labels(True)
         self.qtgui_time_sink_x_1.enable_control_panel(False)
@@ -129,55 +198,8 @@ class nrf24_receiver(gr.top_block, Qt.QWidget):
             self.qtgui_time_sink_x_1.set_line_marker(i, markers[i])
             self.qtgui_time_sink_x_1.set_line_alpha(i, alphas[i])
 
-        self._qtgui_time_sink_x_1_win = sip.wrapinstance(self.qtgui_time_sink_x_1.pyqwidget(), Qt.QWidget)
+        self._qtgui_time_sink_x_1_win = sip.wrapinstance(self.qtgui_time_sink_x_1.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_1_win)
-        self.qtgui_time_sink_x_0_2 = qtgui.time_sink_f(
-            int(1024/4), #size
-            samp_rate/2, #samp_rate
-            "", #name
-            1 #number of inputs
-        )
-        self.qtgui_time_sink_x_0_2.set_update_time(0.10)
-        self.qtgui_time_sink_x_0_2.set_y_axis(-1, 1)
-
-        self.qtgui_time_sink_x_0_2.set_y_label('Amplitude', "")
-
-        self.qtgui_time_sink_x_0_2.enable_tags(True)
-        self.qtgui_time_sink_x_0_2.set_trigger_mode(qtgui.TRIG_MODE_TAG, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "burst")
-        self.qtgui_time_sink_x_0_2.enable_autoscale(True)
-        self.qtgui_time_sink_x_0_2.enable_grid(False)
-        self.qtgui_time_sink_x_0_2.enable_axis_labels(True)
-        self.qtgui_time_sink_x_0_2.enable_control_panel(False)
-        self.qtgui_time_sink_x_0_2.enable_stem_plot(False)
-
-
-        labels = ['', '', '', '', '',
-            '', '', '', '', '']
-        widths = [1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1]
-        colors = ['blue', 'red', 'green', 'black', 'cyan',
-            'magenta', 'yellow', 'dark red', 'dark green', 'dark blue']
-        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
-            1.0, 1.0, 1.0, 1.0, 1.0]
-        styles = [1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1]
-        markers = [-1, -1, -1, -1, -1,
-            -1, -1, -1, -1, -1]
-
-
-        for i in range(1):
-            if len(labels[i]) == 0:
-                self.qtgui_time_sink_x_0_2.set_line_label(i, "Data {0}".format(i))
-            else:
-                self.qtgui_time_sink_x_0_2.set_line_label(i, labels[i])
-            self.qtgui_time_sink_x_0_2.set_line_width(i, widths[i])
-            self.qtgui_time_sink_x_0_2.set_line_color(i, colors[i])
-            self.qtgui_time_sink_x_0_2.set_line_style(i, styles[i])
-            self.qtgui_time_sink_x_0_2.set_line_marker(i, markers[i])
-            self.qtgui_time_sink_x_0_2.set_line_alpha(i, alphas[i])
-
-        self._qtgui_time_sink_x_0_2_win = sip.wrapinstance(self.qtgui_time_sink_x_0_2.pyqwidget(), Qt.QWidget)
-        self.top_layout.addWidget(self._qtgui_time_sink_x_0_2_win)
         self.nordic_nordictap_printer_0 = nordic.nordictap_printer()
         self.nordic_nordic_rx_0 = nordic.nordic_rx(120, 5, 2, 2)
         self.low_pass_filter_0 = filter.fir_filter_ccf(
@@ -185,20 +207,21 @@ class nrf24_receiver(gr.top_block, Qt.QWidget):
             firdes.low_pass(
                 1,
                 samp_rate,
-                1e6,
+                1.2e6,
                 250e3,
-                firdes.WIN_HAMMING,
+                window.WIN_HAMMING,
                 6.76))
-        self.digital_correlate_access_code_xx_ts_0 = digital.correlate_access_code_bb_ts('10101010',
-          0, 'burst')
-        self.digital_clock_recovery_mm_xx_0 = digital.clock_recovery_mm_ff(2*(1+0.0), 0.25*0.175*0.175, 0.5, 0.175, 0.005)
-        self.digital_binary_slicer_fb_0 = digital.binary_slicer_fb()
-        self.blocks_throttle_0 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, '/home/herve/gr-nordic/examples/nrf_data.bin', True, 0, 0)
-        self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
-        self.blocks_char_to_float_0_2 = blocks.char_to_float(1, 1)
-        self.analog_quadrature_demod_cf_0 = analog.quadrature_demod_cf(1/((3.1415/2)/2))
-        self.analog_pwr_squelch_xx_0 = analog.pwr_squelch_cc(-35, 5e-4, 0, False)
+        self.digital_gfsk_demod_1 = digital.gfsk_demod(
+            samples_per_symbol=(int(samp_rate/symbol_rate)),
+            sensitivity=(1.5707/(samp_rate/symbol_rate)),
+            gain_mu=0.175,
+            mu=0.5,
+            omega_relative_limit=0.005,
+            freq_error=0.0,
+            verbose=False,
+            log=False)
+        self.blocks_char_to_float_2 = blocks.char_to_float(1, 1)
+        self.analog_pwr_squelch_xx_0 = analog.pwr_squelch_cc((-40), (5e-4), 0, False)
 
 
         ##################################################
@@ -207,32 +230,37 @@ class nrf24_receiver(gr.top_block, Qt.QWidget):
         self.msg_connect((self.nordic_nordic_rx_0, 'nordictap_out'), (self.nordic_nordictap_printer_0, 'nordictap_in'))
         self.connect((self.analog_pwr_squelch_xx_0, 0), (self.low_pass_filter_0, 0))
         self.connect((self.analog_pwr_squelch_xx_0, 0), (self.qtgui_time_sink_x_1, 0))
-        self.connect((self.analog_quadrature_demod_cf_0, 0), (self.digital_clock_recovery_mm_xx_0, 0))
-        self.connect((self.blocks_char_to_float_0_2, 0), (self.qtgui_time_sink_x_0_2, 0))
-        self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.analog_pwr_squelch_xx_0, 0))
-        self.connect((self.digital_binary_slicer_fb_0, 0), (self.digital_correlate_access_code_xx_ts_0, 0))
-        self.connect((self.digital_binary_slicer_fb_0, 0), (self.nordic_nordic_rx_0, 0))
-        self.connect((self.digital_clock_recovery_mm_xx_0, 0), (self.digital_binary_slicer_fb_0, 0))
-        self.connect((self.digital_correlate_access_code_xx_ts_0, 0), (self.blocks_char_to_float_0_2, 0))
-        self.connect((self.low_pass_filter_0, 0), (self.analog_quadrature_demod_cf_0, 0))
+        self.connect((self.blocks_char_to_float_2, 0), (self.qtgui_time_sink_x_2_0_0, 0))
+        self.connect((self.digital_gfsk_demod_1, 0), (self.blocks_char_to_float_2, 0))
+        self.connect((self.digital_gfsk_demod_1, 0), (self.nordic_nordic_rx_0, 0))
+        self.connect((self.low_pass_filter_0, 0), (self.digital_gfsk_demod_1, 0))
+        self.connect((self.uhd_usrp_source_0, 0), (self.analog_pwr_squelch_xx_0, 0))
 
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "nrf24_receiver")
         self.settings.setValue("geometry", self.saveGeometry())
+        self.stop()
+        self.wait()
+
         event.accept()
+
+    def get_symbol_rate(self):
+        return self.symbol_rate
+
+    def set_symbol_rate(self, symbol_rate):
+        self.symbol_rate = symbol_rate
+        self.qtgui_time_sink_x_2_0_0.set_samp_rate(self.samp_rate/(self.samp_rate/self.symbol_rate))
 
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.blocks_throttle_0.set_sample_rate(self.samp_rate)
-        self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate, 1e6, 250e3, firdes.WIN_HAMMING, 6.76))
-        self.qtgui_time_sink_x_0_2.set_samp_rate(self.samp_rate/2)
+        self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate, 1.2e6, 250e3, window.WIN_HAMMING, 6.76))
         self.qtgui_time_sink_x_1.set_samp_rate(self.samp_rate)
-
+        self.qtgui_time_sink_x_2_0_0.set_samp_rate(self.samp_rate/(self.samp_rate/self.symbol_rate))
+        self.uhd_usrp_source_0.set_samp_rate(self.samp_rate)
 
 
 
@@ -253,6 +281,9 @@ def main(top_block_cls=nrf24_receiver, options=None):
     tb.show()
 
     def sig_handler(sig=None, frame=None):
+        tb.stop()
+        tb.wait()
+
         Qt.QApplication.quit()
 
     signal.signal(signal.SIGINT, sig_handler)
@@ -262,11 +293,6 @@ def main(top_block_cls=nrf24_receiver, options=None):
     timer.start(500)
     timer.timeout.connect(lambda: None)
 
-    def quitting():
-        tb.stop()
-        tb.wait()
-
-    qapp.aboutToQuit.connect(quitting)
     qapp.exec_()
 
 if __name__ == '__main__':

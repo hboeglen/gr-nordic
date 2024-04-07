@@ -1,0 +1,2 @@
+nordic_rx
+nordic_tx

@@ -51,11 +51,11 @@ namespace gr {
       : gr::sync_block("nordic_rx",
               gr::io_signature::make(1, 1, sizeof(uint8_t)),
               gr::io_signature::make(0, 0, 0)),
-              m_decoded_bits_bytes(42*8 /* buffer sufficient for max ESB frame length */),
-              m_crc_length(crc_length),
-              m_address_length(address_length),
               m_channel(channel),
-              m_data_rate(data_rate)
+              m_address_length(address_length),
+              m_crc_length(crc_length),
+              m_data_rate(data_rate),
+              m_decoded_bits_bytes(42*8 /* buffer sufficient for max ESB frame length */)
     {
       message_port_register_out(pmt::mp("nordictap_out"));
     }
@@ -116,9 +116,6 @@ namespace gr {
               memcpy(&buffer[sizeof(nordictap_header)], m_enhanced_shockburst->address(), m_address_length);
               memcpy(&buffer[sizeof(nordictap_header) + m_address_length], m_enhanced_shockburst->payload(), header.payload_length);
               memcpy(&buffer[sizeof(nordictap_header) + m_address_length + header.payload_length], m_enhanced_shockburst->crc(), m_crc_length);
-              
-              //printf("Buffer=%s", buffer);
-              //printf("\n");
 
               // Send the packet to wireshark
               boost::asio::io_service io_service;
